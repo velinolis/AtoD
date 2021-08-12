@@ -1,0 +1,59 @@
+/*
+  ---------------------------
+  # AnalogtoDigital library #
+  ---------------------------
+  pin A0 = 14
+  pin A1 = 15
+  pin A2 = 16
+  pin A3 = 17
+  pin A4 = 18 (excluded) --> I2C SDA
+  pin A5 = 19 (excluded) --> I2C SCL
+
+*/
+
+#include "AnalogtoDigital.h"
+#include "Arduino.h"
+
+AnalogtoDigital::AnalogtoDigital() {}
+
+void AnalogtoDigital::Convert_All() {
+  int limit = (sizeof(NPin) / sizeof(NPin[0]));
+  for (int NPins = 0; NPins < limit; NPins++) {
+    pinMode(NPin[NPins], OUTPUT);
+    digitalWrite(NPin[NPins], LOW);
+  }
+}
+
+void AnalogtoDigital::Select_Pin(int pin1, int pin2, int pin3, int pin4) {
+  
+  _pin1 = pin1;
+  _pin2 = pin2;
+  _pin3 = pin3;
+  _pin4 = pin4;
+  
+  if (_pin1 == 14 || _pin1 == 1) {
+    pinMode(NPin[0], OUTPUT);
+    digitalWrite(NPin[0], LOW);
+  }
+  if (_pin2 == 15 || _pin2 == 1) {
+    pinMode(NPin[1], OUTPUT);
+    digitalWrite(NPin[1], LOW);
+  }
+  if (_pin3 == 16 || _pin3 == 1) {
+    pinMode(NPin[2], OUTPUT);
+    digitalWrite(NPin[2], LOW);
+  }
+  if (_pin4 == 17 || _pin4 == 1) {
+    pinMode(NPin[3], OUTPUT);
+    digitalWrite(NPin[3], LOW);
+  }
+}
+
+void AnalogtoDigital::N_Pins(int numpin) {
+  _numpin = numpin;
+  if (_numpin > 4) _numpin = 4;
+  for (int Npins = 0; Npins < _numpin; Npins++) {
+    pinMode(NPin[Npins], OUTPUT);
+    digitalWrite(NPin[Npins], LOW);
+  }
+}
