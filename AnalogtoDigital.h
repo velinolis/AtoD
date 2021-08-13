@@ -15,5 +15,6 @@ class AnalogtoDigital
     void Convert_All();
     void Select_Pin(int pin1, int pin2, int pin3, int pin4);
     void N_Pins(int numpin);
+    void ADC_PortC();
 };
 #endif
