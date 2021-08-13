@@ -2,6 +2,8 @@
   ---------------------------
   # AnalogtoDigital library #
   ---------------------------
+  Library to convert analog pins to digital pins Arduino/ATMEGA328P-PU
+   
   pin A0 = 14
   pin A1 = 15
   pin A2 = 16
