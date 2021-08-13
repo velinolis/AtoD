@@ -12,9 +12,33 @@ Convert analog input pins of PORTC in digital outputs
 * PORTC -> bit 0 -> PC0/A0/14
 
 Functions
-1. Convert_All()
+1. Convert_All() 
+
+Convert all pins (14-17/A0-A3), excluded pin A4 (SDA) and pin A5 (SCL) of I2C protocol.
+
+
 2. Select_Pin()
+
+Convert selected pin **AD.Select_Pin(0, 0, 0, 0);** 
+
+Values
+A/D|pin A0/14 | pin A1/15 | pin A2/16 | pin A3/17
+------------ | ------------- | ------------ |------------ |------------
+digital |14 or 1 | 15 or 1 |16 or 1 | 17 or 1
+analog | 0 | 0  | 0 | 0
+
+```C++
+//Convert todigital pin 14 and 16
+AD.Select_Pin(14, 0, 16, 0);
+AD.Select_Pin(1, 0, 1, 0);
+AD.Select_Pin(1, 0, 16, 0);
+AD.Select_Pin(14, 0, 1, 0);
+```
+
+
 3. N_Pins()
+
+
 4. ADC_PortC()
 
 Usage
