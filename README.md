@@ -1,5 +1,5 @@
 # AtoD
-Library to convert analog pins to digital pins Arduino/ATMEGA328P-PU
+*Library to convert analog pins to digital pins Arduino/ATMEGA328P-PU*
 
 Convert analog input pins of PORTC in digital outputs
 * PORTC -> bit 7 -> NONE
@@ -11,13 +11,14 @@ Convert analog input pins of PORTC in digital outputs
 * PORTC -> bit 1 -> PC1/A1/15
 * PORTC -> bit 0 -> PC0/A0/14
 
-Functions
-1. Convert_All() 
+## Functions
+
+**1. Convert_All()** 
 
 Convert all pins (14-17/A0-A3), excluded pin A4 (SDA) and pin A5 (SCL) of I2C protocol.
 
 
-2. Select_Pin()
+**2. Select_Pin()**
 
 Convert selected pin **AD.Select_Pin(0, 0, 0, 0);** 
 
@@ -27,7 +28,7 @@ digital |14 or 1 | 15 or 1 |16 or 1 | 17 or 1
 analog | 0 | 0  | 0 | 0
 
 ```C++
-//Convert todigital pin 14 and 16
+//Convert to digital pin 14 and 16
 AD.Select_Pin(14, 0, 16, 0);
 AD.Select_Pin(1, 0, 1, 0);
 AD.Select_Pin(1, 0, 16, 0);
@@ -35,10 +36,25 @@ AD.Select_Pin(14, 0, 1, 0);
 ```
 
 
-3. N_Pins()
+**3. N_Pins()**
 
+Convert number of pins (1-4), **AD.N_Pins(n);**
 
-4. ADC_PortC()
+n = 1 to 4 
+
+n = 0 -> don't convert
+
+n > 4 -> n = 4
+
+```C++
+//Convert to digital 1 pin (A0), 2 pins (A0, A1), 3 pins(A0, A1, A2), 4 pins (A0, A1, A2, A3)
+AD.N_Pins(1)
+AD.N_Pins(2)
+AD.N_Pins(3)
+AD.N_Pins(4)
+```
+
+**4. ADC_PortC()**
 
  Convert pins A0 - A3 input analog to output digital
  using less flash memory.
@@ -54,9 +70,9 @@ AD.Select_Pin(14, 0, 1, 0);
  bit 1 |A1/15 | 1 | 0
  bit 0 |A0/14 | 1 | 0
  
-Usage
+## Usage
 
-1. Convert_All() 
+**1. Convert_All()** 
 
 ```C++
 #include "AnalogtoDigital.h"
@@ -68,7 +84,7 @@ void setup() {
 void loop() {
 }
 ```
-2. Select_Pin()
+**2. Select_Pin()**
 ```C++
 #include "AnalogtoDigital.h"
 AnalogtoDigital AD;
@@ -79,7 +95,20 @@ void setup() {
 void loop() {
 }
 ```
-4. ADC_PortC()
+
+**3. N_Pins()**
+```C++
+#include "AnalogtoDigital.h"
+AnalogtoDigital AD;
+
+void setup() {
+ AD.N_Pins(2);
+}
+void loop() {
+}
+```
+
+**4. ADC_PortC()**
 ```C++
 #include "AnalogtoDigital.h"
 AnalogtoDigital AD;
