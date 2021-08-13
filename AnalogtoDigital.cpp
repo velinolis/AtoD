@@ -57,3 +57,26 @@ void AnalogtoDigital::N_Pins(int numpin) {
     digitalWrite(NPin[Npins], LOW);
   }
 }
+
+void AnalogtoDigital::ADC_PortC() {
+  /*
+    Convert pins A0 - A3 input analog to output digital
+    using less flash memory
+
+                                  DDRC   PORTC
+    bit 7-> None                   0       0
+    bit 6-> None                   0       0
+    bit 5-> A5 I2C (SCL) / 19      0       0
+    bit 4-> A4 I2C (SDA) / 18      0       0
+    bit 3-> A3 / 17                1       0
+    bit 2-> A2 / 16                1       0
+    bit 1-> A1 / 15                1       0
+    bit 0-> A0 / 14                1       0
+
+    DDRC(I/0) , PORTC (H/L) -> 0 = input/LOW , 1 = output/HIGH
+  */
+
+  DDRC = DDRC | B00001111;
+  PORTC = PORTC | B00000000;
+
+}
