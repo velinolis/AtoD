@@ -11,4 +11,7 @@ void setup() {
 void loop() {
   //PINC = bit (0);
   //PINC = bit (1);
+  
+  //PINC = bit (0); = digitalWrite(14, HIGH);
+  //PINC = bit (1); = digitalWrite(15, HIGH);
 }
