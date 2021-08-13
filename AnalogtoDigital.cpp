@@ -53,11 +53,12 @@ void AnalogtoDigital::Select_Pin(int pin1, int pin2, int pin3, int pin4) {
 
 void AnalogtoDigital::N_Pins(int numpin) {
   _numpin = numpin;
-  if (_numpin < 1 || _numpin == 0 )  _numpin = 0;
   if (_numpin > 4) _numpin = 4;
-  for (int Npins = 0; Npins < _numpin; Npins++) {
-    pinMode(NPin[Npins], OUTPUT);
-    digitalWrite(NPin[Npins], LOW);
+  if (_numpin > 0 && _numpin < 5) {
+    for (int Npins = 0; Npins < _numpin; Npins++) {
+      pinMode(NPin[Npins], OUTPUT);
+      digitalWrite(NPin[Npins], LOW);
+    }
   }
 }
 
