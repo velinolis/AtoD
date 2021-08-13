@@ -21,7 +21,6 @@ Convert all pins (14-17/A0-A3), excluded pin A4 (SDA) and pin A5 (SCL) of I2C pr
 
 Convert selected pin **AD.Select_Pin(0, 0, 0, 0);** 
 
-Values
 A/D|pin A0/14 | pin A1/15 | pin A2/16 | pin A3/17
 ------------ | ------------- | ------------ |------------ |------------
 digital |14 or 1 | 15 or 1 |16 or 1 | 17 or 1
@@ -41,6 +40,20 @@ AD.Select_Pin(14, 0, 1, 0);
 
 4. ADC_PortC()
 
+ Convert pins A0 - A3 input analog to output digital
+ using less flash memory.
+ 
+ bit | pin  | DDRC | PORTC
+ ------------ | ------------- | ------------ |------------  
+ bit 7 | NONE | 0| 0
+ bit 6 | NONE | 0| 0
+ bit 5 |A5/19 I2C (SCL)| 0| 0
+ bit 4 |A4/18 I2C (SDA)| 0| 0
+ bit 3 |A3/17 | 1 | 0
+ bit 2 |A2/16 | 1 | 0
+ bit 1 |A1/15 | 1 | 0
+ bit 0 |A0/14 | 1 | 0
+ 
 Usage
 
 1. Convert_All() 
@@ -62,6 +75,17 @@ AnalogtoDigital AD;
 
 void setup() {
  AD.Select_Pin(14, 0, 1, 1);
+}
+void loop() {
+}
+```
+4. ADC_PortC()
+```C++
+#include "AnalogtoDigital.h"
+AnalogtoDigital AD;
+
+void setup() {
+  AD.ADC_PortC();
 }
 void loop() {
 }
