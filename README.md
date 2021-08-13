@@ -70,6 +70,8 @@ AD.N_Pins(4)
  bit 1 |A1/15 | 1 | 0
  bit 0 |A0/14 | 1 | 0
  
+ DDRC(I/0) , PORTC (H/L) -> 0 = input/LOW , 1 = output/HIGH
+ 
 ## Usage
 
 **1. Convert_All()** 
