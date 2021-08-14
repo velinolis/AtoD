@@ -59,18 +59,15 @@ AD.N_Pins(4)
  Convert pins A0 - A3 input analog to output digital
  using less flash memory.
  
- bit | pin  | DDRC | PORTC
- ------------ | ------------- | ------------ |------------  
- bit 7 | NONE | 0| 0
- bit 6 | NONE | 0| 0
- bit 5 |A5/19 I2C (SCL)| 0| 0
- bit 4 |A4/18 I2C (SDA)| 0| 0
- bit 3 |A3/17 | 1 | 0
- bit 2 |A2/16 | 1 | 0
- bit 1 |A1/15 | 1 | 0
- bit 0 |A0/14 | 1 | 0
+ bit | bit 7 | bit 6 | bit 5 | bit 4 | bit 3 | bit 2 | bit 1 | bit 0 
+ ------------ | ------------- | ------------ |------------   |------------  |------------  |------------  |------------  |------------ 
+pin  | NONE |NONE|A5/19 I2C (SCL) |A4/18 I2C (SDA) |A3/17|A2/16 |A1/15 |A0/14 
+DDRC |0|0|0|0|1|1|1|1
+PORTC |0|0|0|0|0|0|0|0
  
- DDRC(I/0) , PORTC (H/L) -> 0 = input/LOW , 1 = output/HIGH
+ DDRC (Data Direction Register) -> 0 logic = INPUT / 1 logic = OUTPUT
+ 
+ PORTC (Pin Output Register) -> 0 = LOW = 0v / 1 = HIGH = 5v
  
 ## Usage
 
