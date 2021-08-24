@@ -80,7 +80,7 @@ void AnalogtoDigital::ADC_PortC() {
     DDRC(I/0) , PORTC (H/L) -> 0 = input/LOW , 1 = output/HIGH
   */
 
-  DDRC = DDRC | B00001111;
-  PORTC = PORTC | B00000000;
+  DDRC = DDRC | B00001111; //DDRC |= B00001111;
+  PORTC = PORTC | B00000000; //PORTC |= B00000000;
 
 }
